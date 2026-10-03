@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>김민준 | 프론트엔드 개발자</title>
+<meta name="description" content="프론트엔드 개발자 김민준의 개인 프로필 사이트입니다. 기술 스택, 프로젝트, 연락처를 확인해보세요." />
+
+<meta property="og:title" content="김민준 | 프론트엔드 개발자" />
+<meta property="og:description" content="프론트엔드 개발자 김민준의 개인 프로필 사이트입니다." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.css" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          accent: {
+            50: "#fef2f2",
+            100: "#fee2e2",
+            400: "#f87171",
+            500: "#ef4444",
+            600: "#dc2626",
+            700: "#b91c1c",
+          },
+        },
+        fontFamily: {
+          sans: ["Pretendard", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 font-sans antialiased transition-colors duration-300">
+
+<!-- Header / Nav -->
+<header class="fixed top-0 inset-x-0 z-50 border-b border-neutral-200 dark:border-neutral-800 bg-white/90 dark:bg-neutral-950/90 backdrop-blur">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#home" class="font-black text-sm tracking-[0.2em] uppercase">
+      Minjun<span class="text-accent-600">.</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-10 text-xs font-semibold tracking-[0.15em] uppercase">
+      <a href="#about" class="nav-link">소개</a>
+      <a href="#skills" class="nav-link">기술 스택</a>
+      <a href="#projects" class="nav-link">프로젝트</a>
+      <a href="#contact" class="nav-link">연락처</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button id="theme-toggle" type="button" aria-label="다크모드 전환"
+        class="inline-flex items-center justify-center w-9 h-9 rounded-full border border-neutral-200 dark:border-neutral-700 hover:border-accent-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-500 transition-colors">
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-xs font-bold tracking-[0.1em] uppercase hover:bg-accent-600 dark:hover:bg-accent-500 dark:hover:text-white transition-colors">
+        연락하기
+      </a>
+
+      <button id="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false"
+        class="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-full border border-neutral-200 dark:border-neutral-700 hover:border-accent-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-500">
+        <svg id="icon-burger" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <nav id="mobile-menu" class="md:hidden hidden border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">
+    <div class="px-6 py-4 flex flex-col gap-4 text-xs font-semibold tracking-[0.15em] uppercase">
+      <a href="#about" class="nav-link">소개</a>
+      <a href="#skills" class="nav-link">기술 스택</a>
+      <a href="#projects" class="nav-link">프로젝트</a>
+      <a href="#contact" class="nav-link">연락처</a>
+    </div>
+  </nav>
+</header>
+
+<main class="pt-16">
+
+  <!-- Hero -->
+  <section id="home" class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+    <div>
+      <span class="block text-xs font-bold tracking-[0.2em] uppercase text-accent-600 mb-6">
+        Frontend Developer
+      </span>
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.05] tracking-tight">
+        사용자 경험의<br />
+        디테일을 다루는<br />
+        개발자 <span class="text-accent-600">김민준</span>.
+      </h1>
+      <p class="mt-8 text-sm md:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-sm">
+        빠르고 접근성 높은 웹을 만드는 데 집중합니다. 작은 디테일이 전체 경험을 바꾼다고 믿고,
+        그 디테일을 끝까지 다듬는 작업을 좋아합니다.
+      </p>
+      <a href="#projects" class="view-link mt-8">프로젝트 보기</a>
+    </div>
+
+    <div class="relative aspect-[4/5] md:mt-4">
+      <div class="blob-field">
+        <div class="blob blob-blue w-40 h-40 -top-8 -left-8 animate-drift-a"></div>
+        <div class="blob blob-violet w-52 h-52 top-1/4 -right-10 animate-drift-b"></div>
+        <div class="blob blob-pink w-36 h-36 -bottom-8 left-12 animate-float-y"></div>
+        <div class="blob blob-cyan w-28 h-28 bottom-10 -right-6 animate-drift-a" style="animation-delay:-6s"></div>
+      </div>
+      <div class="glass absolute inset-6 md:inset-10 flex items-center justify-center overflow-hidden">
+        <svg viewBox="0 0 400 500" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g class="spin-slow" stroke="currentColor" stroke-width="0.6" opacity="0.35">
+            <ellipse cx="200" cy="250" rx="170" ry="60" transform="rotate(8 200 250)"/>
+            <ellipse cx="200" cy="250" rx="170" ry="60" transform="rotate(28 200 250)"/>
+            <ellipse cx="200" cy="250" rx="170" ry="60" transform="rotate(48 200 250)"/>
+            <ellipse cx="200" cy="250" rx="170" ry="60" transform="rotate(68 200 250)"/>
+            <ellipse cx="200" cy="250" rx="170" ry="60" transform="rotate(88 200 250)"/>
+            <ellipse cx="200" cy="250" rx="170" ry="60" transform="rotate(108 200 250)"/>
+            <ellipse cx="200" cy="250" rx="170" ry="60" transform="rotate(128 200 250)"/>
+          </g>
+          <g class="spin-slow-reverse" stroke="#dc2626" stroke-width="0.8" opacity="0.6">
+            <ellipse cx="200" cy="250" rx="170" ry="60" transform="rotate(18 200 250)"/>
+            <ellipse cx="200" cy="250" rx="170" ry="60" transform="rotate(118 200 250)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-16 md:py-20 border-t border-neutral-200 dark:border-neutral-800 grid md:grid-cols-[160px_1fr] gap-6 md:gap-12">
+    <span class="section-label">01 — 소개</span>
+    <div>
+      <p class="type-heading font-extrabold tracking-tight">
+        <span id="typewriter-text" class="typewriter">웹 표준과 접근성을 중요하게 생각하는 프론트엔드 개발자입니다.</span>
+      </p>
+      <p class="mt-5 text-sm md:text-base text-neutral-500 dark:text-neutral-400 leading-relaxed max-w-xl">
+        디자인 시스템 구축부터 성능 최적화까지, 사용자가 체감하는 품질을 높이는 작업을 좋아합니다.
+        새로운 기술을 배우는 것을 즐기며, 작은 사이드 프로젝트를 통해 꾸준히 실험하고 기록합니다.
+        협업할 때는 명확한 커뮤니케이션과 꾸준한 피드백을 중요하게 생각합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="max-w-6xl mx-auto px-6 py-16 md:py-20 border-t border-neutral-200 dark:border-neutral-800 grid md:grid-cols-[160px_1fr] gap-6 md:gap-12">
+    <span class="section-label">02 — 기술 스택</span>
+    <div class="relative py-4">
+      <div class="blob-field">
+        <div class="blob blob-cyan w-40 h-40 -top-10 left-0 animate-float-y"></div>
+        <div class="blob blob-violet w-48 h-48 top-6 right-0 animate-float-y" style="animation-delay:-4s"></div>
+        <div class="blob blob-pink w-36 h-36 bottom-0 left-1/3 animate-float-y" style="animation-delay:-8s"></div>
+      </div>
+      <div class="relative z-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <span class="skill-glass">HTML5</span>
+        <span class="skill-glass">CSS3</span>
+        <span class="skill-glass">JavaScript</span>
+        <span class="skill-glass">TypeScript</span>
+        <span class="skill-glass">React</span>
+        <span class="skill-glass">Tailwind CSS</span>
+        <span class="skill-glass">Git</span>
+        <span class="skill-glass">Figma</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="max-w-6xl mx-auto px-6 py-16 md:py-20 border-t border-neutral-200 dark:border-neutral-800 grid md:grid-cols-[160px_1fr] gap-6 md:gap-12">
+    <span class="section-label">03 — 프로젝트</span>
+    <div class="relative py-4">
+      <div class="blob-field">
+        <div class="blob blob-blue w-44 h-44 -top-10 -left-6 animate-drift-a"></div>
+        <div class="blob blob-violet w-56 h-56 bottom-0 right-0 animate-drift-b"></div>
+      </div>
+      <div class="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <article class="project-glass" style="--glow-delay:0s">
+          <h3 class="project-title">프로젝트 제목 1</h3>
+          <p class="project-desc">프로젝트에 대한 간단한 설명을 여기에 작성합니다. 어떤 문제를 해결했는지 한두 문장으로 요약하세요.</p>
+          <div class="project-meta">
+            <span class="tag">React</span>
+            <span class="tag">Tailwind</span>
+            <a href="#" class="project-link">GitHub ↗</a>
+          </div>
+        </article>
+
+        <article class="project-glass" style="--glow-delay:-3s">
+          <h3 class="project-title">프로젝트 제목 2</h3>
+          <p class="project-desc">프로젝트에 대한 간단한 설명을 여기에 작성합니다. 어떤 문제를 해결했는지 한두 문장으로 요약하세요.</p>
+          <div class="project-meta">
+            <span class="tag">JavaScript</span>
+            <span class="tag">API</span>
+            <a href="#" class="project-link">GitHub ↗</a>
+          </div>
+        </article>
+
+        <article class="project-glass" style="--glow-delay:-6s">
+          <h3 class="project-title">프로젝트 제목 3</h3>
+          <p class="project-desc">프로젝트에 대한 간단한 설명을 여기에 작성합니다. 어떤 문제를 해결했는지 한두 문장으로 요약하세요.</p>
+          <div class="project-meta">
+            <span class="tag">TypeScript</span>
+            <span class="tag">Vite</span>
+            <a href="#" class="project-link">GitHub ↗</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-6 py-16 md:py-20 border-t border-neutral-200 dark:border-neutral-800 grid md:grid-cols-[160px_1fr] gap-6 md:gap-12">
+    <span class="section-label">04 — 연락처</span>
+    <div class="relative py-4">
+      <div class="blob-field">
+        <div class="blob blob-blue w-56 h-56 -top-10 -left-10 animate-drift-a"></div>
+        <div class="blob blob-pink w-64 h-64 -bottom-16 right-0 animate-drift-b"></div>
+        <div class="blob blob-violet w-48 h-48 top-1/3 right-1/4 animate-float-y"></div>
+      </div>
+      <div class="glass relative z-10 p-8 md:p-12">
+        <p class="text-xl md:text-2xl font-bold leading-snug tracking-tight max-w-lg">
+          새로운 기회나 협업 제안은 언제든 환영합니다.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-x-8 gap-y-3">
+          <a href="mailto:hello@example.com" class="view-link">hello@example.com</a>
+          <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" class="view-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="border-t border-neutral-200 dark:border-neutral-800">
+  <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-medium tracking-[0.1em] uppercase text-neutral-400 dark:text-neutral-500">
+    <p>&copy; <span id="year"></span> Minjun Kim. All rights reserved.</p>
+    <div class="flex gap-6">
+      <a href="mailto:hello@example.com" class="hover:text-accent-600 transition-colors">Email</a>
+      <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" class="hover:text-accent-600 transition-colors">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
